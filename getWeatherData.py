@@ -56,14 +56,3 @@ for city in cities:
 
 connection.commit()
 connection.close()
-
-
-
-
-
-
-
-
-
-if __name__ == "__main__":
-    run_pipeline()
