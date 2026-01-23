@@ -26,53 +26,70 @@ conn = pyodbc.connect(f'driver={DRIVER};SERVER={SERVER};DATABASE={DATABASE};UID=
 
 cursor = conn.cursor()
 
-def insertWatherData(
-    cityName,
-    temp,
-    tempMin,
-    tempMax,
-    humidity,
-    sunrise,
-    sunset,
-    wind_speed,
-    recorded_at,
-    weather_desc,
-    city_id
-    ):
-    sql = """
-       INSERT INTO weather_data(city,temperature,temperature_min,temperature_max,humidity,sunrise,sunset,wind_speed,recorded_at,weather_desc,city_id)
-       Values(?,?,?,?,?,?,?,?,?,?,?)"""
-    cursor.execute(
-       sql,
-       cityName, temp, tempMin, tempMax, humidity, sunrise, sunset, wind_speed, recorded_at,weather_desc,city_id
-    )
+cursor.execute("""
+    CREATE TABLE forecasted_weather(
+                cityID INT,
+                cityName NVARCHAR(100),
+                temp_min_day1 FLOAT,
+                temp_max_day1 FLOAT,
+                temp_min_day2 FLOAT,
+                temp_max_day2 FLOAT, 
+                temp_min_day3 FLOAT,
+                temp_max_day3 FLOAT, 
+                temp_min_day4 FLOAT,
+                temp_max_day4 FLOAT  
+               )
+""")
 
 
-for city in cities:
-    url = "https://api.openweathermap.org/data/2.5/weather"
-    params ={
-    "lat": float(city['lat']),
-    "lon": float(city['lon']),
-    "appid": "487ae2216ffdc9fd729cab338dbf483f"
-    }
-    if os_name == "Windows":
-        response = requests.get(url, params = params,verify = cert)
-    else:
-        response = requests.get(url, params = params)
-    data = response.json()
-    insertWatherData(
-       data["name"],
-       data["main"]["temp"],
-       data["main"]["temp_min"],
-       data["main"]["temp_max"],
-       data["main"]["humidity"],
-       datetime.fromtimestamp(data["sys"]["sunrise"]) ,
-       datetime.fromtimestamp(data["sys"]["sunset"]),
-       data["wind"]["speed"],
-       current_time,
-       data["weather"][0]["description"],
-       data["id"]
-    )
+# def insertWatherData(
+#     cityName,
+#     temp,
+#     tempMin,
+#     tempMax,
+#     humidity,
+#     sunrise,
+#     sunset,
+#     wind_speed,
+#     recorded_at,
+#     weather_desc,
+#     city_id
+#     ):
+#     sql = """
+#        INSERT INTO weather_data(city,temperature,temperature_min,temperature_max,humidity,sunrise,sunset,wind_speed,recorded_at,weather_desc,city_id)
+#        Values(?,?,?,?,?,?,?,?,?,?,?)"""
+#     cursor.execute(
+#        sql,
+#        cityName, temp, tempMin, tempMax, humidity, sunrise, sunset, wind_speed, recorded_at,weather_desc,city_id
+#     )
+
+
+# for city in cities:
+#     url = "api.openweathermap.org/data/2.5/forecast/daily?"
+#     params ={
+#     "lat": float(city['lat']),
+#     "lon": float(city['lon']),
+#     "appid": "487ae2216ffdc9fd729cab338dbf483f",
+#     "cnt" : 7
+#     }
+#     if os_name == "Windows":
+#         response = requests.get(url, params = params,verify = cert)
+#     else:
+#         response = requests.get(url, params = params)
+#     data = response.json()
+#     insertWatherData(
+#        data["name"],
+#        data["main"]["temp"],
+#        data["main"]["temp_min"],
+#        data["main"]["temp_max"],
+#        data["main"]["humidity"],
+#        datetime.fromtimestamp(data["sys"]["sunrise"]) ,
+#        datetime.fromtimestamp(data["sys"]["sunset"]),
+#        data["wind"]["speed"],
+#        current_time,
+#        data["weather"][0]["description"],
+#        data["id"]
+#     )
 
 
 conn.commit()
