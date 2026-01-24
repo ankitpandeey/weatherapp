@@ -11,6 +11,10 @@ from dotenv import load_dotenv
 load_dotenv()
 current_time = datetime.now(timezone.utc)
 API_KEY = os.getenv("OPENWEATHER_API_KEY")
+UID = os.getenv("UID"),
+SERVER = os.getenv("SERVER")
+DATABASE = os.getenv("DATABASE")
+PWD = os.getenv("PWD")
 os_name = platform.system()
 if os_name == "Windows":
     cert = r"C:\Users\MC823AX\ZscalerRootCertificate-2048-SHA256-Feb2025 (2).pem"
@@ -20,10 +24,10 @@ with open('mp_only.json',"r", encoding = "utf-8") as f:
 
 
 DRIVER="{ODBC Driver 18 for SQL Server}"
-SERVER="tcp:weatherappp.database.windows.net"
-DATABASE="free-sql-db-9236210;"
-UID= "localhost"
-PWD="A@p8103101921"
+SERVER= SERVER
+DATABASE=DATABASE
+UID= UID
+PWD=PWD
 
 conn = pyodbc.connect(f'driver={DRIVER};SERVER={SERVER};DATABASE={DATABASE};UID={UID};PWD={PWD}')
 
