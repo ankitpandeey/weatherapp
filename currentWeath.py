@@ -5,6 +5,11 @@ import json
 import os
 import platform
 from datetime import datetime, timezone
+from dotenv import load_dotenv
+
+load_dotenv()
+
+API_KEY = os.getenv("OPENWEATHER_API_KEY")
 
 current_time = datetime.now(timezone.utc)
 os_name = platform.system()
@@ -53,26 +58,28 @@ for city in cities:
     params ={
     "lat": float(city['lat']),
     "lon": float(city['lon']),
-    "appid": "487ae2216ffdc9fd729cab338dbf483f"
+    "appid": API_KEY
     }
     if os_name == "Windows":
         response = requests.get(url, params = params,verify = cert)
     else:
         response = requests.get(url, params = params)
     data = response.json()
-    insertWatherData(
-       data["name"],
-       data["main"]["temp"],
-       data["main"]["temp_min"],
-       data["main"]["temp_max"],
-       data["main"]["humidity"],
-       datetime.fromtimestamp(data["sys"]["sunrise"]) ,
-       datetime.fromtimestamp(data["sys"]["sunset"]),
-       data["wind"]["speed"],
-       current_time,
-       data["weather"][0]["description"],
-       data["id"]
-    )
+    print(data)
+    break
+    # insertWatherData(
+    #    data["name"],
+    #    data["main"]["temp"],
+    #    data["main"]["temp_min"],
+    #    data["main"]["temp_max"],
+    #    data["main"]["humidity"],
+    #    datetime.fromtimestamp(data["sys"]["sunrise"]) ,
+    #    datetime.fromtimestamp(data["sys"]["sunset"]),
+    #    data["wind"]["speed"],
+    #    current_time,
+    #    data["weather"][0]["description"],
+    #    data["id"]
+    # )
 
 
 conn.commit()
