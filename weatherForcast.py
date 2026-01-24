@@ -42,18 +42,23 @@ cursor.execute("""
 """)
 
 
-# def insertWatherData(
-#     cityName,
-#     temp,
-#     tempMin,
-#     tempMax,
-#     humidity,
-#     sunrise,
-#     sunset,
-#     wind_speed,
-#     recorded_at,
-#     weather_desc,
-#     city_id
+def insertWatherData(
+        cityID INT,
+        cityName,
+        temp_min_day1,
+        temp_max_day1,
+        temp_min_day2,
+        temp_max_day2, 
+        temp_min_day3,
+        temp_max_day3, 
+        temp_min_day4,
+        temp_max_day4,
+        recorded_at,
+        day1,
+        day2,
+        day3,
+        day4,
+        day5
 #     ):
 #     sql = """
 #        INSERT INTO weather_data(city,temperature,temperature_min,temperature_max,humidity,sunrise,sunset,wind_speed,recorded_at,weather_desc,city_id)
