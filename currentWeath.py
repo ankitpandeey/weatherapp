@@ -24,10 +24,10 @@ with open('mp_only.json',"r", encoding = "utf-8") as f:
     cities = json.load(f)
 
 DRIVER="{ODBC Driver 18 for SQL Server}"
-SERVER= SERVER
-DATABASE=DATABASE
-UID= UID
-PWD=PWD
+UID = "localhost"
+PWD = "A@p8103101921"
+SERVER="tcp:weatherappp.database.windows.net"
+DATABASE="free-sql-db-9236210;"
 
 conn = pyodbc.connect(f'driver={DRIVER};SERVER={SERVER};DATABASE={DATABASE};UID={UID};PWD={PWD}')
 

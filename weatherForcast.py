@@ -22,12 +22,11 @@ if os_name == "Windows":
 with open('mp_only.json',"r", encoding = "utf-8") as f:
     cities = json.load(f)
 
-
 DRIVER="{ODBC Driver 18 for SQL Server}"
-SERVER= SERVER
-DATABASE=DATABASE
-UID= UID
-PWD=PWD
+UID = "localhost"
+PWD = "A@p8103101921"
+SERVER="tcp:weatherappp.database.windows.net"
+DATABASE="free-sql-db-9236210;"
 
 conn = pyodbc.connect(f'driver={DRIVER};SERVER={SERVER};DATABASE={DATABASE};UID={UID};PWD={PWD}')
 
@@ -52,8 +51,8 @@ def insertForecastedWeatherData(
         day4
    ):
     sql = """
-       INSERT INTO forecasted_weather(cityID,cityName,temp_min_day1,temp_max_day1,temp_min_day2,temp_max_day2,temp_min_day3,temp_max_day3,temp_min_day4,temp_max_day4,recorded_at,day1,day2,day3,day4)
-       Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)"""
+       INSERT INTO forecasted_weather(cityID,cityName,temp_min_day1,temp_max_day1,temp_min_day2,temp_max_day2,temp_min_day3,temp_max_day3,temp_min_day4,temp_max_day4,day0,day1,day2,day3,day4)
+       Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"""
     cursor.execute(
        sql,
        cityID, cityName, temp_min_day1, temp_max_day1, temp_min_day2, temp_max_day2, temp_min_day3, temp_max_day3, temp_min_day4,temp_max_day4,recorded_at,day1,day2,day3,day4
@@ -61,39 +60,36 @@ def insertForecastedWeatherData(
 
 
 for city in cities:
-    url = "https://api.openweathermap.org/data/2.5/forecast/daily"
+    url = "https://api.openweathermap.org/data/3.0/onecall?"
     params ={
     "lat": float(city['lat']),
     "lon": float(city['lon']),
-    "appid": API_KEY,
-    "cnt" : 4
+    "exclude":["hourly","minutely","current"],
+    "appid": API_KEY
+
     }
     if os_name == "Windows":
         response = requests.get(url, params = params,verify = cert)
     else:
         response = requests.get(url, params = params)
     data = response.json()
-    print(data)
-    break
-    # insertForecastedWeatherData(
-    #    data["city"]["id"],
-    #    data["city"]["name"],
-    #    data["list"][0]["temp"]["min"],
-    #    data["list"][0]["temp"]["max"],
-    #    data["list"][1]["temp"]["min"],
-    #    data["list"][1]["temp"]["max"],
-    #    data["list"][2]["temp"]["min"],
-    #    data["list"][2]["temp"]["max"],
-    #    data["list"][3]["temp"]["min"],
-    #    data["list"][3]["temp"]["max"],
-    #    current_time,
-    #    data["list"][0]["dt"],
-    #    data["list"][1]["dt"],
-    #    data["list"][2]["dt"],
-    #    data["list"][3]["dt"]
-    #    )
-    # break
-
+    insertForecastedWeatherData(
+       city["id"],
+       city["name"],
+       data["daily"][0]["temp"]["min"],
+       data["daily"][0]["temp"]["max"],
+       data["daily"][1]["temp"]["min"],
+       data["daily"][1]["temp"]["max"],
+       data["daily"][2]["temp"]["min"],
+       data["daily"][2]["temp"]["max"],
+       data["daily"][3]["temp"]["min"],
+       data["daily"][3]["temp"]["max"],
+       datetime.fromtimestamp(data["daily"][0]["dt"], tz=timezone.utc),
+       datetime.fromtimestamp(data["daily"][1]["dt"], tz=timezone.utc),
+       datetime.fromtimestamp(data["daily"][2]["dt"], tz=timezone.utc),
+       datetime.fromtimestamp(data["daily"][3]["dt"], tz=timezone.utc),
+       datetime.fromtimestamp(data["daily"][4]["dt"], tz=timezone.utc)
+       )
 conn.commit()
 cursor.close()
 conn.close()
