@@ -6,6 +6,8 @@ import os
 import platform
 from datetime import datetime, timezone
 from dotenv import load_dotenv
+from test import clean_text
+from utcToLocalTime import utc_to_ist
 
 
 load_dotenv()
@@ -32,6 +34,7 @@ conn = pyodbc.connect(f'driver={DRIVER};SERVER={SERVER};DATABASE={DATABASE};UID=
 
 
 cursor = conn.cursor()
+cursor.execute("""TRUNCATE TABLE forecasted_weather """)
 
 def insertForecastedWeatherData(
         cityID,
@@ -75,7 +78,7 @@ for city in cities:
     data = response.json()
     insertForecastedWeatherData(
        city["id"],
-       city["name"],
+       clean_text(city["name"]),
        data["daily"][0]["temp"]["min"],
        data["daily"][0]["temp"]["max"],
        data["daily"][1]["temp"]["min"],
@@ -84,11 +87,11 @@ for city in cities:
        data["daily"][2]["temp"]["max"],
        data["daily"][3]["temp"]["min"],
        data["daily"][3]["temp"]["max"],
-       datetime.fromtimestamp(data["daily"][0]["dt"], tz=timezone.utc),
-       datetime.fromtimestamp(data["daily"][1]["dt"], tz=timezone.utc),
-       datetime.fromtimestamp(data["daily"][2]["dt"], tz=timezone.utc),
-       datetime.fromtimestamp(data["daily"][3]["dt"], tz=timezone.utc),
-       datetime.fromtimestamp(data["daily"][4]["dt"], tz=timezone.utc)
+       utc_to_ist(data["daily"][0]["dt"]),
+       utc_to_ist(data["daily"][1]["dt"]),
+       utc_to_ist(data["daily"][2]["dt"]),
+       utc_to_ist(data["daily"][3]["dt"]),
+       utc_to_ist(data["daily"][4]["dt"])
        )
 conn.commit()
 cursor.close()

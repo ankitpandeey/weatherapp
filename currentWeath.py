@@ -4,8 +4,10 @@ import requests
 import json
 import os
 import platform
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from dotenv import load_dotenv
+from test import clean_text
+from utcToLocalTime import utc_to_ist
 
 load_dotenv()
 
@@ -14,8 +16,8 @@ UID = os.getenv("UID"),
 SERVER = os.getenv("SERVER")
 DATABASE = os.getenv("DATABASE")
 PWD = os.getenv("PWD")
-
-current_time = datetime.now(timezone.utc)
+IST = timezone(timedelta(hours=5, minutes=30))
+current_time = datetime.now(timezone.utc).astimezone(IST)
 os_name = platform.system()
 if os_name == "Windows":
     cert = r"C:\Users\MC823AX\ZscalerRootCertificate-2048-SHA256-Feb2025 (2).pem"
@@ -33,6 +35,7 @@ conn = pyodbc.connect(f'driver={DRIVER};SERVER={SERVER};DATABASE={DATABASE};UID=
 
 
 cursor = conn.cursor()
+cursor.execute("""TRUNCATE TABLE weather_data""")
 
 def insertWatherData(
     cityName,
@@ -68,21 +71,19 @@ for city in cities:
     else:
         response = requests.get(url, params = params)
     data = response.json()
-    print(data)
-    break
-    # insertWatherData(
-    #    data["name"],
-    #    data["main"]["temp"],
-    #    data["main"]["temp_min"],
-    #    data["main"]["temp_max"],
-    #    data["main"]["humidity"],
-    #    datetime.fromtimestamp(data["sys"]["sunrise"]) ,
-    #    datetime.fromtimestamp(data["sys"]["sunset"]),
-    #    data["wind"]["speed"],
-    #    current_time,
-    #    data["weather"][0]["description"],
-    #    data["id"]
-    # )
+    insertWatherData(
+      clean_text(data["name"]),
+       data["main"]["temp"],
+       data["main"]["temp_min"],
+       data["main"]["temp_max"],
+       data["main"]["humidity"],
+       utc_to_ist(data["sys"]["sunrise"]) ,
+       utc_to_ist(data["sys"]["sunset"]),
+       data["wind"]["speed"],
+       current_time,
+       data["weather"][0]["description"],
+       data["id"]
+    )
 
 
 conn.commit()
