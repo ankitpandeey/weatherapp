@@ -72,17 +72,17 @@ for city in cities:
         response = requests.get(url, params = params)
     data = response.json()
     insertWatherData(
-      clean_text(data["name"]),
-       data["main"]["temp"],
-       data["main"]["temp_min"],
-       data["main"]["temp_max"],
-       data["main"]["humidity"],
+       clean_text(city["name"]),    
+       data["main"]["temp"] -273.15,
+       data["main"]["temp_min"] -273.15,
+       data["main"]["temp_max"] -273.15,
+       data["main"]["humidity"] / 100,
        utc_to_ist(data["sys"]["sunrise"]) ,
        utc_to_ist(data["sys"]["sunset"]),
        data["wind"]["speed"],
        current_time,
        data["weather"][0]["description"],
-       data["id"]
+       city["id"]
     )
 
 
