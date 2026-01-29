@@ -6,17 +6,17 @@ import os
 import platform
 from datetime import datetime, timezone
 from dotenv import load_dotenv
-from test import clean_text
+from text_utils import clean_text
 from utcToLocalTime import utc_to_ist
 
 def forecasted_weather_pipeline():
     load_dotenv()
     current_time = datetime.now(timezone.utc)
     API_KEY = os.getenv("OPENWEATHER_API_KEY")
-    UID = os.getenv("UID"),
-    SERVER = os.getenv("SERVER")
-    DATABASE = os.getenv("DATABASE")
+    UID = os.getenv("UID")
     PWD = os.getenv("PWD")
+    SERVER=os.getenv("SERVER")
+    DATABASE=os.getenv("DATABASE")
     os_name = platform.system()
     if os_name == "Windows":
         cert = r"C:\Users\MC823AX\ZscalerRootCertificate-2048-SHA256-Feb2025 (2).pem"
@@ -25,14 +25,12 @@ def forecasted_weather_pipeline():
         cities = json.load(f)
 
     DRIVER="{ODBC Driver 18 for SQL Server}"
-    SERVER = os.getenv("SERVER")
-    DATABASE = os.getenv("DATABASE")
-    UID = os.getenv("UID")
-    PWD = os.getenv("PWD")
+    SERVER = SERVER
+    DATABASE = DATABASE
+    UID = UID
+    PWD = PWD
 
     conn = pyodbc.connect(f'driver={DRIVER};SERVER={SERVER};DATABASE={DATABASE};UID={UID};PWD={PWD}')
-
-
     cursor = conn.cursor()
     cursor.execute("""TRUNCATE TABLE forecasted_weather """)
 

@@ -5,18 +5,13 @@ import os
 import platform
 from datetime import datetime, timezone, timedelta
 from dotenv import load_dotenv
-from test import clean_text
+from text_utils import clean_text
 from utcToLocalTime import utc_to_ist
 
 def run_current_weather_pipeline():
-
     load_dotenv()
-
-    API_KEY = os.getenv("OPENWEATHER_API_KEY")
-
     IST = timezone(timedelta(hours=5, minutes=30))
     current_time = datetime.now(timezone.utc).astimezone(IST)
-
     os_name = platform.system()
     cert = None
     if os_name == "Windows":
@@ -26,10 +21,11 @@ def run_current_weather_pipeline():
         cities = json.load(f)
 
     DRIVER = "{ODBC Driver 18 for SQL Server}"
-    SERVER = os.getenv("SERVER")
-    DATABASE = os.getenv("DATABASE")
+    API_KEY = os.getenv("OPENWEATHER_API_KEY")
     UID = os.getenv("UID")
     PWD = os.getenv("PWD")
+    SERVER=os.getenv("SERVER")
+    DATABASE=os.getenv("DATABASE")
 
     conn = pyodbc.connect(
         f"DRIVER={DRIVER};SERVER={SERVER};DATABASE={DATABASE};UID={UID};PWD={PWD}"
