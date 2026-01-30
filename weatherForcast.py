@@ -3,7 +3,6 @@ import pyodbc
 import os
 from datetime import datetime, timezone
 from dotenv import load_dotenv
-from text_utils import clean_text
 from utcToLocalTime import utc_to_ist
 from fetchWeather import fetchWeatherData
 
