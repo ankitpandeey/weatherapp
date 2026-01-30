@@ -5,23 +5,25 @@ from datetime import datetime, timezone
 from dotenv import load_dotenv
 from utcToLocalTime import utc_to_ist
 from fetchWeather import fetchWeatherData
+import json
 
-data = fetchWeatherData
 def forecasted_weather_pipeline():
+    with open('mp_only.json', "r", encoding="utf-8") as f:
+        cities = json.load(f)
     load_dotenv()
-    current_time = utc_to_ist(datetime.now(timezone.utc))
+    current_time = datetime.now(timezone.utc)
     DRIVER="{ODBC Driver 18 for SQL Server}"
-    SERVER = os.getenv("UID")
+    SERVER = os.getenv("SERVER")
     DATABASE =os.getenv("DATABASE")
-    UID = os.getenv("SERVER")
+    UID = os.getenv("UID")
     PWD = os.getenv("PWD")
 
     conn = pyodbc.connect(f'driver={DRIVER};SERVER={SERVER};DATABASE={DATABASE};UID={UID};PWD={PWD}')
     cursor = conn.cursor()
-    cursor.execute("""TRUNCATE TABLE forecasted_weather """)
+    cursor.execute("""TRUNCATE TABLE fact_daily_forecast""")
 
     def insertForecastedWeatherData(
-            cityID,
+            city_id,
             forecast_date,
             collected_at,
             temp_min,
@@ -34,32 +36,35 @@ def forecasted_weather_pipeline():
             sunset_time,
             weather_main,
             weather_description,
+            icon_id
     ):
         sql = """
-        INSERT INTO fact_daily_forecast(cityID, forecast_date,collected_at,temp_min,temp_max,humidity,wind_speed,clouds,pop,sunrise_time,sunset_time,weather_main,weather_description)
-        Values(?,?,?,?,?,?,?,?,?,?,?,?,?)"""
+        INSERT INTO fact_daily_forecast(city_id, forecast_date,collected_at,temp_min,temp_max,humidity,wind_speed,clouds,pop,sunrise_time,sunset_time,weather_main,weather_description,icon_id)
+        Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)"""
         cursor.execute(
         sql,
-        cityID, forecast_date,collected_at, temp_min, temp_max, humidity, wind_speed, clouds, pop,sunrise_time,sunset_time,weather_main,weather_description
+        city_id, forecast_date,collected_at, temp_min, temp_max, humidity, wind_speed, clouds, pop,sunrise_time,sunset_time,weather_main,weather_description,icon_id
         )
 
 
-    for city in data:
-       for i in range(1,4):
+    for city in cities:
+       Data = fetchWeatherData()
+       for i in range(1,5):
         insertForecastedWeatherData(
         city["id"],
-        utc_to_ist(city["daily"][i]["dt"]),
+        utc_to_ist(Data["daily"][i]["dt"]),
         current_time,
-        city["daily"][i]["temp"]["min"],
-        city["daily"][i]["temp"]["max"],
-        city["daily"][i]["humidity"],
-        city["daily"][i]["wind_speed"],
-        city["daily"][i]["clouds"],
-        city["daily"][i]["pop"],
-        utc_to_ist(city["daily"][i]["sunrise"]),
-        utc_to_ist(city["daily"][i]["sunset"]),
-        city["daily"][i]["weather"][i]["main"],
-        city["daily"][i]["weather"][i]["description"]
+        Data["daily"][i]["temp"]["min"],
+        Data["daily"][i]["temp"]["max"],
+        Data["daily"][i]["humidity"],
+        Data["daily"][i]["wind_speed"],
+        Data["daily"][i]["clouds"],
+        Data["daily"][i]["pop"],
+        utc_to_ist(Data["daily"][i]["sunrise"]),
+        utc_to_ist(Data["daily"][i]["sunset"]),
+        Data["daily"][i]["weather"][0]["main"],
+        Data["daily"][i]["weather"][0]["description"],
+        Data["daily"][i]["weather"][0]["icon"]
         )
     conn.commit()
     cursor.close()
