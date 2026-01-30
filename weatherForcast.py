@@ -37,7 +37,7 @@ def forecasted_weather_pipeline():
             weather_description,
     ):
         sql = """
-        INSERT INTO forecasted_weather(cityID, forecast_date,collected_at,temp_min,temp_max,humidity,wind_speed,clouds,pop,sunrise_time,sunset_time,weather_main,weather_description)
+        INSERT INTO fact_daily_forecast(cityID, forecast_date,collected_at,temp_min,temp_max,humidity,wind_speed,clouds,pop,sunrise_time,sunset_time,weather_main,weather_description)
         Values(?,?,?,?,?,?,?,?,?,?,?,?,?)"""
         cursor.execute(
         sql,
