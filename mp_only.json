@@ -1,115 +1,5 @@
 [
     {
-        "id": 1258952,
-        "name": "Raisen",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Raisen",
-        "lat": "23.3303300",
-        "lon": "77.7811000",
-        "pop": "44162"
-    },
-    {
-        "id": 1256913,
-        "name": "Sehore",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Sehore",
-        "lat": "23.2000000",
-        "lon": "77.0833300",
-        "pop": "109118"
-    },
-    {
-        "id": 1253200,
-        "name": "Vidisha",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Vidisha",
-        "lat": "23.5260400",
-        "lon": "77.8109200",
-        "pop": "155951"
-    },
-    {
-        "id": 1262771,
-        "name": "Morena",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Morena",
-        "lat": "26.4989200",
-        "lon": "77.9953400",
-        "pop": "200482"
-    },
-    {
-        "id": 1275926,
-        "name": "Bhind",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Bhind",
-        "lat": "26.5667100",
-        "lon": "78.7872800",
-        "pop": "197585"
-    },
-    {
-        "id": 1256593,
-        "name": "Sheopur",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Sheopur",
-        "lat": "25.6647200",
-        "lon": "76.6961600",
-        "pop": "71951"
-    },
-    {
-        "id": 1270583,
-        "name": "Gwalior",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Gwalior",
-        "lat": "26.2298300",
-        "lon": "78.1733700",
-        "pop": "1054420"
-    },
-    {
-        "id": 1278297,
-        "name": "Ashoknagar",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Ashoknagar",
-        "lat": "24.5757800",
-        "lon": "77.7312300",
-        "pop": "81828"
-    },
-    {
-        "id": 1273403,
-        "name": "Datia",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Datia",
-        "lat": "25.6731200",
-        "lon": "78.4590800",
-        "pop": "100284"
-    },
-    {
-        "id": 1270711,
-        "name": "Guna",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Guna",
-        "lat": "24.6469100",
-        "lon": "77.3113000",
-        "pop": "180935"
-    },
-    {
-        "id": 1256451,
-        "name": "Shivpuri",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Shivpur\u012b",
-        "lat": "25.4237800",
-        "lon": "77.6622300",
-        "pop": "179977"
-    },
-    {
         "id": 1269743,
         "name": "Indore",
         "country": "IN",
@@ -120,34 +10,14 @@
         "pop": "1994397"
     },
     {
-        "id": 1258815,
-        "name": "Alirajpur",
+        "id": 1275841,
+        "name": "Bhopal",
         "country": "IN",
         "admin1": "Madhya Pradesh",
-        "admin2": "Alirajpur",
-        "lat": "22.3039300",
-        "lon": "74.3556800",
-        "pop": "28498"
-    },
-    {
-        "id": 1267031,
-        "name": "Khandwa",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Khandwa district",
-        "lat": "21.8242700",
-        "lon": "76.3508600",
-        "pop": "200738"
-    },
-    {
-        "id": 1266928,
-        "name": "Khargone",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Khargone",
-        "lat": "21.8229200",
-        "lon": "75.6139400",
-        "pop": "116150"
+        "admin2": "Bhopāl",
+        "lat": "23.2546900",
+        "lon": "77.4028900",
+        "pop": "1798218"
     },
     {
         "id": 1269633,
@@ -160,154 +30,14 @@
         "pop": "1081677"
     },
     {
-        "id": 1272540,
-        "name": "Dindori",
+        "id": 1270583,
+        "name": "Gwalior",
         "country": "IN",
         "admin1": "Madhya Pradesh",
-        "admin2": "Dindori",
-        "lat": "22.9414100",
-        "lon": "81.0797500",
-        "pop": "21323"
-    },
-    {
-        "id": 1256826,
-        "name": "Seoni",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Seon\u012b",
-        "lat": "22.0850300",
-        "lon": "79.5503700",
-        "pop": "102343"
-    },
-    {
-        "id": 1269939,
-        "name": "Narmadapuram",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Narmadapuram district",
-        "lat": "22.7474700",
-        "lon": "77.7273600",
-        "pop": "117988"
-    },
-    {
-        "id": 1270375,
-        "name": "Harda",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Harda",
-        "lat": "22.3441400",
-        "lon": "77.0953600",
-        "pop": "74268"
-    },
-    {
-        "id": 1258182,
-        "name": "Rewa",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Rewa",
-        "lat": "24.5325600",
-        "lon": "81.2923400",
-        "pop": "235654"
-    },
-    {
-        "id": 1264317,
-        "name": "Maihar",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Satna",
-        "lat": "24.2659400",
-        "lon": "80.7606300",
-        "pop": "40192"
-    },
-    {
-        "id": 1263300,
-        "name": "Mauganj",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Rewa",
-        "lat": "24.6672100",
-        "lon": "81.8733900",
-        "pop": "26420"
-    },
-    {
-        "id": 1257022,
-        "name": "Satna",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Satna",
-        "lat": "24.5772600",
-        "lon": "80.8271900",
-        "pop": "282977"
-    },
-    {
-        "id": 1256369,
-        "name": "Sidhi",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Sidhi",
-        "lat": "24.4038000",
-        "lon": "81.8795400",
-        "pop": "54331"
-    },
-    {
-        "id": 7279754,
-        "name": "Singrauli",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Singrauli",
-        "lat": "24.1997300",
-        "lon": "82.6753500",
-        "pop": "220257"
-    },
-    {
-        "id": 1274337,
-        "name": "Chhatarpur",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Chhatarpur",
-        "lat": "24.9177000",
-        "lon": "79.5887100",
-        "pop": "142128"
-    },
-    {
-        "id": 1273587,
-        "name": "Damoh",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Damoh",
-        "lat": "23.8331200",
-        "lon": "79.4419000",
-        "pop": "139561"
-    },
-    {
-        "id": 1260454,
-        "name": "Panna",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Panna",
-        "lat": "24.7209400",
-        "lon": "80.1877200",
-        "pop": "59091"
-    },
-    {
-        "id": 1256739,
-        "name": "Shahdol",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Shahdol",
-        "lat": "23.2935600",
-        "lon": "81.3619000",
-        "pop": "89289"
-    },
-    {
-        "id": 1253863,
-        "name": "Umaria",
-        "country": "IN",
-        "admin1": "Madhya Pradesh",
-        "admin2": "Umaria District",
-        "lat": "23.5247300",
-        "lon": "80.8371600",
-        "pop": "33114"
+        "admin2": "Gwalior",
+        "lat": "26.2298300",
+        "lon": "78.1733700",
+        "pop": "1054420"
     },
     {
         "id": 1253914,
@@ -330,6 +60,156 @@
         "pop": "289550"
     },
     {
+        "id": 1257022,
+        "name": "Satna",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Satna",
+        "lat": "24.5772600",
+        "lon": "80.8271900",
+        "pop": "282977"
+    },
+    {
+        "id": 1258342,
+        "name": "Ratlām",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Ratlām",
+        "lat": "23.3303300",
+        "lon": "75.0403200",
+        "pop": "264914"
+    },
+    {
+        "id": 1258182,
+        "name": "Rewa",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Rewa",
+        "lat": "24.5325600",
+        "lon": "81.2923400",
+        "pop": "235654"
+    },
+    {
+        "id": 7279754,
+        "name": "Singrauli",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Singrauli",
+        "lat": "24.1997300",
+        "lon": "82.6753500",
+        "pop": "220257"
+    },
+    {
+        "id": 1275068,
+        "name": "Burhānpur",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Burhanpur",
+        "lat": "21.3086800",
+        "lon": "76.2302600",
+        "pop": "210886"
+    },
+    {
+        "id": 1267031,
+        "name": "Khandwa",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Khandwa district",
+        "lat": "21.8242700",
+        "lon": "76.3508600",
+        "pop": "200738"
+    },
+    {
+        "id": 1262771,
+        "name": "Morena",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Morena",
+        "lat": "26.4989200",
+        "lon": "77.9953400",
+        "pop": "200482"
+    },
+    {
+        "id": 1275926,
+        "name": "Bhind",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Bhind",
+        "lat": "26.5667100",
+        "lon": "78.7872800",
+        "pop": "197585"
+    },
+    {
+        "id": 1270711,
+        "name": "Guna",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Guna",
+        "lat": "24.6469100",
+        "lon": "77.3113000",
+        "pop": "180935"
+    },
+    {
+        "id": 1256451,
+        "name": "Shivpuri",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Shivpurī",
+        "lat": "25.4237800",
+        "lon": "77.6622300",
+        "pop": "179977"
+    },
+    {
+        "id": 1274304,
+        "name": "Chhindwāra",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Chhindwāra",
+        "lat": "22.0569700",
+        "lon": "78.9395800",
+        "pop": "175052"
+    },
+    {
+        "id": 1258815,
+        "name": "Alirajpur",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Alirajpur",
+        "lat": "22.3039300",
+        "lon": "74.3556800",
+        "pop": "28498"
+    },
+    {
+        "id": 1253200,
+        "name": "Vidisha",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Vidisha",
+        "lat": "23.5260400",
+        "lon": "77.8109200",
+        "pop": "155951"
+    },
+    {
+        "id": 1279299,
+        "name": "Agar Malwa",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Agar Malwa",
+        "lat": "23.7117700",
+        "lon": "76.0157100",
+        "pop": "37917"
+    },
+    {
+        "id": 1274337,
+        "name": "Chhatarpur",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Chhatarpur",
+        "lat": "24.9177000",
+        "lon": "79.5887100",
+        "pop": "142128"
+    },
+    {
         "id": 1263834,
         "name": "Mandsaur",
         "country": "IN",
@@ -338,5 +218,305 @@
         "lat": "24.0718400",
         "lon": "75.0698600",
         "pop": "141667"
+    },
+    {
+        "id": 1273587,
+        "name": "Damoh",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Damoh",
+        "lat": "23.8331200",
+        "lon": "79.4419000",
+        "pop": "139561"
+    },
+    {
+        "id": 1261754,
+        "name": "Narsingapur",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Narsimhapur",
+        "lat": "22.9493600",
+        "lon": "79.1835700",
+        "pop": "59966"
+    },
+    {
+        "id": 1269939,
+        "name": "Narmadapuram",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Narmadapuram district",
+        "lat": "22.7474700",
+        "lon": "77.7273600",
+        "pop": "117988"
+    },
+    {
+        "id": 1266928,
+        "name": "Khargone",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Khargone",
+        "lat": "21.8229200",
+        "lon": "75.6139400",
+        "pop": "116150"
+    },
+    {
+        "id": 1256913,
+        "name": "Sehore",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Sehore",
+        "lat": "23.2000000",
+        "lon": "77.0833300",
+        "pop": "109118"
+    },
+    {
+        "id": 1276389,
+        "name": "Betūl",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Betūl",
+        "lat": "21.9005600",
+        "lon": "77.9022900",
+        "pop": "103330"
+    },
+    {
+        "id": 1262395,
+        "name": "Katni",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Katni",
+        "lat": "23.8377600",
+        "lon": "80.3940500",
+        "pop": "221883"
+    },
+    {
+        "id": 1256826,
+        "name": "Seoni",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Seonī",
+        "lat": "22.0850300",
+        "lon": "79.5503700",
+        "pop": "102343"
+    },
+    {
+        "id": 1273403,
+        "name": "Datia",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Datia",
+        "lat": "25.6731200",
+        "lon": "78.4590800",
+        "pop": "100284"
+    },
+    {
+        "id": 1272892,
+        "name": "Dhār",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Dhār",
+        "lat": "22.5937300",
+        "lon": "75.2977400",
+        "pop": "93917"
+    },
+    {
+        "id": 1256739,
+        "name": "Shahdol",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Shahdol",
+        "lat": "23.2935600",
+        "lon": "81.3619000",
+        "pop": "89289"
+    },
+    {
+        "id": 1277661,
+        "name": "Bālāghāt",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Bālāghāt",
+        "lat": "21.8156000",
+        "lon": "80.1884500",
+        "pop": "84261"
+    },
+    {
+        "id": 1278297,
+        "name": "Ashoknagar",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Ashoknagar",
+        "lat": "24.5757800",
+        "lon": "77.7312300",
+        "pop": "81828"
+    },
+    {
+        "id": 1254534,
+        "name": "Tīkamgarh",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Tīkamgarh",
+        "lat": "24.7432700",
+        "lon": "78.8306100",
+        "pop": "79106"
+    },
+    {
+        "id": 1270375,
+        "name": "Harda",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Harda",
+        "lat": "22.3441400",
+        "lon": "77.0953600",
+        "pop": "74268"
+    },
+    {
+        "id": 1256593,
+        "name": "Sheopur",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Sheopur",
+        "lat": "25.6647200",
+        "lon": "76.6961600",
+        "pop": "71951"
+    },
+    {
+        "id": 1256693,
+        "name": "Shājāpur",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Shājāpur",
+        "lat": "23.4263700",
+        "lon": "76.2777500",
+        "pop": "69263"
+    },
+    {
+        "id": 1260454,
+        "name": "Panna",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Panna",
+        "lat": "24.7209400",
+        "lon": "80.1877200",
+        "pop": "59091"
+    },
+    {
+        "id": 1276810,
+        "name": "Barwāni",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Barwani",
+        "lat": "22.0323200",
+        "lon": "74.8998200",
+        "pop": "55504"
+    },
+    {
+        "id": 1263852,
+        "name": "Mandlā",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Mandla",
+        "lat": "22.5987900",
+        "lon": "80.3711500",
+        "pop": "55133"
+    },
+    {
+        "id": 1256369,
+        "name": "Sidhi",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Sidhi",
+        "lat": "24.4038000",
+        "lon": "81.8795400",
+        "pop": "54331"
+    },
+    {
+        "id": 1260543,
+        "name": "Pāndhurnā",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Chhindwāra",
+        "lat": "21.5955600",
+        "lon": "78.5262800",
+        "pop": "45479"
+    },
+    {
+        "id": 1258952,
+        "name": "Raisen",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Raisen",
+        "lat": "23.3303300",
+        "lon": "77.7811000",
+        "pop": "44162"
+    },
+    {
+        "id": 1264317,
+        "name": "Maihar",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Satna",
+        "lat": "24.2659400",
+        "lon": "80.7606300",
+        "pop": "40192"
+    },
+    {
+        "id": 1269053,
+        "name": "Jhābua",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Jhābua",
+        "lat": "22.7677200",
+        "lon": "74.5908700",
+        "pop": "35753"
+    },
+    {
+        "id": 1253863,
+        "name": "Umaria",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Umaria District",
+        "lat": "23.5247300",
+        "lon": "80.8371600",
+        "pop": "33114"
+    },
+    {
+        "id": 1258875,
+        "name": "Rājgarh",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Rājgarh",
+        "lat": "24.0082600",
+        "lon": "76.7325000",
+        "pop": "29726"
+    },
+    {
+        "id": 1263300,
+        "name": "Mauganj",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Rewa",
+        "lat": "24.6672100",
+        "lon": "81.8733900",
+        "pop": "26420"
+    },
+    {
+        "id": 1272540,
+        "name": "Dindori",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Dindori",
+        "lat": "22.9414100",
+        "lon": "81.0797500",
+        "pop": "21323"
+    },
+    {
+        "id": 1278508,
+        "name": "Anūppur",
+        "country": "IN",
+        "admin1": "Madhya Pradesh",
+        "admin2": "Anuppur",
+        "lat": "23.1034400",
+        "lon": "81.6908300",
+        "pop": "19899"
     }
 ]
