@@ -18,7 +18,8 @@ def fetchWeatherData():
             "lat": float(city['lat']),
             "lon": float(city['lon']),
             "exclude":"minutely",
-            "appid": API_KEY
+            "appid": API_KEY,
+            "units" : "metric"
 
             }
             if os_name == "Windows":

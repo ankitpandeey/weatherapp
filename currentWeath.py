@@ -7,6 +7,7 @@ from datetime import datetime, timezone, timedelta
 from dotenv import load_dotenv
 from text_utils import clean_text
 from utcToLocalTime import utc_to_ist
+from fetchWeather import fetchWeatherData
 
 def run_current_weather_pipeline():
     load_dotenv()
@@ -32,58 +33,49 @@ def run_current_weather_pipeline():
     )
     cursor = conn.cursor()
 
-    cursor.execute("TRUNCATE TABLE weather_data")
+    cursor.execute("TRUNCATE TABLE fact_daily_forecast")
 
     def insertWatherData(
-        cityName,
+        cityID,
+        observed_at,
+        collected_at,
         temp,
-        tempMin,
-        tempMax,
+        feels_like,
         humidity,
-        sunrise,
-        sunset,
+        pressure,
         wind_speed,
-        recorded_at,
-        weather_desc,
-        city_id
+        wind_deg,
+        clouds,
+        weather_main,
+        weather_description,
+
     ):
         sql = """
             INSERT INTO weather_data
-            (city, temperature, temperature_min, temperature_max, humidity, sunrise, sunset, wind_speed, recorded_at, weather_desc, city_id)
-            VALUES (?,?,?,?,?,?,?,?,?,?,?)
+            (cityID, observed_at, collected_at, temp, feels_like, humidity,pressure, wind_speed, wind_deg, clouds, weather_main,weather_description)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
         """
         cursor.execute(
             sql,
-            cityName, temp, tempMin, tempMax, humidity, sunrise, sunset, wind_speed, recorded_at, weather_desc, city_id
+            cityID, observed_at, collected_at, temp, feels_like, humidity, pressure, wind_speed, wind_deg, clouds,weather_main,weather_description
         )
 
     for city in cities:
-        url = "https://api.openweathermap.org/data/2.5/weather"
-        params = {
-            "lat": float(city["lat"]),
-            "lon": float(city["lon"]),
-            "appid": API_KEY
-        }
-
-        if os_name == "Windows" and cert:
-            response = requests.get(url, params=params, verify=cert, timeout=20)
-        else:
-            response = requests.get(url, params=params, timeout=20)
-
-        data = response.json()
-
+        data = fetchWeatherData()
         insertWatherData(
-            clean_text(city["name"]),
-            data["main"]["temp"] - 273.15,
-            data["main"]["temp_min"] - 273.15,
-            data["main"]["temp_max"] - 273.15,
-            data["main"]["humidity"] / 100,
-            utc_to_ist(data["sys"]["sunrise"]),
-            utc_to_ist(data["sys"]["sunset"]),
-            data["wind"]["speed"],
+            city["id"],
+            utc_to_ist(data["current"]["dt"]),
             current_time,
-            data["weather"][0]["description"],
-            city["id"]
+            data["current"]["temp"],
+            data["current"]["feels_like"],
+            data["current"]["humidity"]/100,
+            data["current"]["pressure"],
+            data["current"]["wind_speed"],
+            data["current"]["wind_deg"],
+            data["current"]["clouds"],
+            data["current"]["weather"]["main"],
+            data["current"]["weather"]["description"]
+   
         )
 
     conn.commit()
