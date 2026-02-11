@@ -51,7 +51,7 @@ def run_hourly_weather_pipeline():
 
     ):
         sql = """
-            INSERT INTO weather_data
+            INSERT INTO fact_hourly_forecast
             (city_id, forecast_hour, collected_at, temp, feels_like, humidity,pressure, wind_speed,clouds, pop,weather_main,weather_description)
             VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
         """
@@ -61,27 +61,28 @@ def run_hourly_weather_pipeline():
         )
 
     for city in cities:
-        data = fetchWeatherData()
+       Data = fetchWeatherData(city["lat"], city["lon"])
+       for i in range(0,4):
         insertWatherData(
-            city["id"],
-            utc_to_ist(data["hourly"]["dt"]),
-            current_time,
-            data["hourly"]["temp"],
-            data["hourly"]["feels_like"],
-            data["hourly"]["humidity"]/100,
-            data["hourly"]["pressure"],
-            data["hourly"]["wind_speed"],
-            data["hourly"]["clouds"],
-            data["hourly"]["pop"],
-            data["hourly"]["weather"]["main"],
-            data["hourly"]["weather"]["description"]
+        city["id"],
+        utc_to_ist(Data["hourly"][i]["dt"]),
+        current_time,
+        Data["hourly"][i]["temp"],
+        Data["hourly"][i]["feels_like"],
+        Data["hourly"][i]["humidity"],
+        Data["hourly"][i]["pressure"],
+        Data["hourly"][i]["wind_speed"],
+        Data["hourly"][i]["clouds"],
+        Data["hourly"][i]["pop"],
+        Data["daily"][i]["weather"][0]["main"],
+        Data["daily"][i]["weather"][0]["description"],
         )
 
     conn.commit()
     cursor.close()
     conn.close()
 
-    print("Current weather pipeline completed successfully.")
+    print("Hourly weather forecast pipeline completed successfully.")
 
 
 if __name__ == "__main__":

@@ -33,7 +33,7 @@ def run_current_weather_pipeline():
     )
     cursor = conn.cursor()
 
-    cursor.execute("TRUNCATE TABLE fact_daily_forecast")
+    cursor.execute("TRUNCATE TABLE fact_current_weather")
 
     def insertWatherData(
         cityID,
@@ -51,8 +51,8 @@ def run_current_weather_pipeline():
 
     ):
         sql = """
-            INSERT INTO weather_data
-            (cityID, observed_at, collected_at, temp, feels_like, humidity,pressure, wind_speed, wind_deg, clouds, weather_main,weather_description)
+            INSERT INTO fact_current_weather
+            (city_id, observed_at, collected_at, temp, feels_like, humidity,pressure, wind_speed, wind_deg, clouds, weather_main,weather_description)
             VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
         """
         cursor.execute(
@@ -61,7 +61,7 @@ def run_current_weather_pipeline():
         )
 
     for city in cities:
-        data = fetchWeatherData()
+        data = fetchWeatherData(city["lat"], city["lon"])
         insertWatherData(
             city["id"],
             utc_to_ist(data["current"]["dt"]),
@@ -73,8 +73,8 @@ def run_current_weather_pipeline():
             data["current"]["wind_speed"],
             data["current"]["wind_deg"],
             data["current"]["clouds"],
-            data["current"]["weather"]["main"],
-            data["current"]["weather"]["description"]
+            data["current"]["weather"][0]["main"],
+            data["current"]["weather"][0]["description"]
    
         )
 

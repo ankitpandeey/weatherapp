@@ -48,8 +48,8 @@ def forecasted_weather_pipeline():
 
 
     for city in cities:
-       Data = fetchWeatherData()
-       for i in range(1,5):
+       Data = fetchWeatherData(city["lat"], city["lon"])
+       for i in range(0,5):
         insertForecastedWeatherData(
         city["id"],
         utc_to_ist(Data["daily"][i]["dt"]),
@@ -69,7 +69,8 @@ def forecasted_weather_pipeline():
     conn.commit()
     cursor.close()
     conn.close()
-
+     
+    print("daily weather forecast pipeline completed successfully.")
 
 if __name__ == "__main__":
   forecasted_weather_pipeline()
